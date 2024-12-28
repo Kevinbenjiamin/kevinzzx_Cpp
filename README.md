@@ -16,7 +16,7 @@ This is a personal cpp library for practising various planning and control algor
 
 #### terminal 
 
-```bash
+```shell
 git clone [this code]
 cd kevinzzx_Cpp
 
@@ -39,7 +39,8 @@ IDE: vscode + clangd
 
 - astar
 - dijkstra
-- ...
+- dwa
+- rrt
 
 ### pathtracking
 
