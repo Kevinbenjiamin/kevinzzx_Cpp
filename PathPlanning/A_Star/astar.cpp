@@ -1,7 +1,11 @@
 #include "astar.h"
 
 
-
+/**
+函数功能：计算最后的搜索最短路径
+输入：目标节点（goal）,网格范围（reso）,图像img
+输出：向量pair rx，ry
+*/
 std::vector<std::vector<float> > calc_final_path(Node * goal, float reso, cv::Mat& img, float img_reso){
   std::vector<float> rx;
   std::vector<float> ry;
@@ -18,7 +22,9 @@ std::vector<std::vector<float> > calc_final_path(Node * goal, float reso, cv::Ma
   return {rx, ry};
 }
 
-
+/**
+函数功能：计算网格中的障碍物
+*/
 std::vector<std::vector<int> > calc_obstacle_map(
     std::vector<int> ox, std::vector<int> oy,
     const int min_ox, const int max_ox,
@@ -51,7 +57,9 @@ std::vector<std::vector<int> > calc_obstacle_map(
   return obmap;
 }
 
-
+/**
+节点验证函数,判断是否遇到障碍物
+*/
 bool verify_node(Node* node,
                  const vector<vector<int>>& obmap,
                  int min_ox, int max_ox,
@@ -65,11 +73,20 @@ bool verify_node(Node* node,
   return true;
 }
 
-
+/**
+函数功能：计算当前节点与目标节点的启发代价，这里采用的是曼哈顿距离
+输入：目标节点（n1），当前节点（n2），权重系数（w）
+输出：启发代价g
+*/
 float calc_heristic(Node* n1, Node* n2, float w=1.0){
   return w * std::sqrt(std::pow(n1->x-n2->x, 2)+std::pow(n1->y-n2->y, 2));
 }
 
+
+/**
+函数功能：给出八个方向的节点选择
+无输入输出
+*/
 std::vector<Node> get_motion_model(){
   return {Node(1,   0,  1),
           Node(0,   1,  1),
@@ -81,6 +98,9 @@ std::vector<Node> get_motion_model(){
           Node(1,    1,  std::sqrt(2))};
 }
 
+/**
+astar算法主要运行函数
+*/
 void a_star_planning(float sx, float sy,
                      float gx, float gy,
                      vector<float> ox_, vector<float> oy_,
@@ -166,18 +186,20 @@ void a_star_planning(float sx, float sy,
       visit_map[node->x-min_ox][node->y-min_oy] = 1;
     }
 
+    //结束条件
     if (node->x == ngoal->x && node->y==ngoal->y){
       ngoal->sum_cost = node->sum_cost;
       ngoal->p_node = node;
       break; 
     }
-
+    //遍历8个方向的节点
     for(int i=0; i<motion.size(); i++){
       Node * new_node = new Node(
         node->x + motion[i].x,
         node->y + motion[i].y,
         path_cost[node->x][node->y] + motion[i].sum_cost + calc_heristic(ngoal, node),
         node);
+        //注意这里定义新节点时设置它的父节点为node了
 
       if (!verify_node(new_node, obmap, min_ox, max_ox, min_oy, max_oy)){
         delete new_node;

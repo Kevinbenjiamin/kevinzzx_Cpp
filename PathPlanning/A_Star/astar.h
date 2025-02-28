@@ -10,7 +10,7 @@
 
 using namespace std;
 
-
+//定义节点类
 class Node{
 public:
   int x;
