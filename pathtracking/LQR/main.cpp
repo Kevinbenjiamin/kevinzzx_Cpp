@@ -1,6 +1,4 @@
-//
-// Created by chh3213 on 2022/11/25.
-//
+
 
 #include "LQRcontrol.h"
 #include "../utils/MyReferencePath.h"

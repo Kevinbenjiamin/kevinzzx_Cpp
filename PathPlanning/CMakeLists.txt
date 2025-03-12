@@ -24,3 +24,15 @@ target_link_libraries(dwa_demo PRIVATE ${OpenCV_LIBS} kevinzzx_Cpp)
 # rrt
 add_executable(rrt_demo rrt/main.cpp rrt/rrt.cpp)
 target_link_libraries(rrt_demo PRIVATE ${OpenCV_LIBS} kevinzzx_Cpp)
+
+# bezier
+add_executable(bezier_demo Bezier/main.cpp Bezier/BezierCurve.cpp)
+target_link_libraries(bezier_demo PRIVATE ${OpenCV_LIBS} kevinzzx_Cpp)
+
+# Bspline
+add_executable(bspline_demo B-spline/main.cpp B-spline/BSpline.cpp)
+target_link_libraries(bspline_demo PRIVATE ${OpenCV_LIBS} kevinzzx_Cpp)
+
+#curve_interpolation
+add_executable(curve_inter_demo Curve_interpolation/main.cpp)
+target_link_libraries(curve_inter_demo PRIVATE ${OpenCV_LIBS} kevinzzx_Cpp)
