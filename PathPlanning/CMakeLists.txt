@@ -36,3 +36,13 @@ target_link_libraries(bspline_demo PRIVATE ${OpenCV_LIBS} kevinzzx_Cpp)
 #curve_interpolation
 add_executable(curve_inter_demo Curve_interpolation/main.cpp)
 target_link_libraries(curve_inter_demo PRIVATE ${OpenCV_LIBS} kevinzzx_Cpp)
+
+
+#debins_path
+add_executable(debins_demo Dubins_path/main.cpp Dubins_path/Debins_path.cpp)
+target_link_libraries(debins_demo PRIVATE ${OpenCV_LIBS} kevinzzx_Cpp)
+
+
+#frenet_opt_traj
+add_executable(frenet_opt_traj_demo Frenet_opt_traj/main.cpp Frenet_opt_traj/Frenet_opt_traj.cpp)
+target_link_libraries(frenet_opt_traj_demo PRIVATE ${OpenCV_LIBS} kevinzzx_Cpp)

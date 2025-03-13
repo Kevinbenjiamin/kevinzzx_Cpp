@@ -68,7 +68,7 @@ int main(){
     Mat img(500,500,CV_8UC3,cv::Scalar(255,255,255));
 
     for(int i=1;i<x_.size();i++){
-        line(img,Point(x_[i-1]*10,250-y_[i-1]*10),Point(x_[i]*10,250-y_[i]),Scalar(255,0,0),2);
+        line(img,Point(x_[i-1]*10,250-y_[i-1]*10),Point(x_[i]*10,250-y_[i]*10),Scalar(255,0,0),2);
     }
     imshow("curve_interpolation",img);
     waitKey(0);

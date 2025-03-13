@@ -41,6 +41,12 @@ IDE: vscode + clangd
 - dijkstra
 - dwa
 - rrt
+- bezier
+- B-spline
+- curve interpolation
+- Dubins_path
+- Frenet_opt_trajectory
+- ...
 
 ### pathtracking
 
