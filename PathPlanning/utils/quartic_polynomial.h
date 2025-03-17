@@ -39,21 +39,13 @@ QuarticPolynomial(float xs_, float vxs_, float axs_, float vxe_, float axe_, flo
   a4 = c_eigen[1];
 };
 
-float calc_point(float t){
-  return a0 + a1*t + a2*std::pow(t, 2) + a3*std::pow(t, 3) + a4*std::pow(t, 4);
-};
+float calc_point(float t);
 
-float calc_first_derivative(float t){
-  return a1 + 2*a2*t + 3*a3*std::pow(t, 2) + 4*a4*std::pow(t, 3);
-};
+float calc_first_derivative(float t);
 
-float calc_second_derivative(float t){
-  return 2*a2 + 6*a3*t + 12*a4*std::pow(t, 2);
-};
+float calc_second_derivative(float t);
 
-float calc_third_derivative(float t){
-  return 6*a3 + 24*a4*t;
-};
+float calc_third_derivative(float t);
 
 };
 }

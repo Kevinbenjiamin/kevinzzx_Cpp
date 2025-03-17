@@ -44,5 +44,5 @@ target_link_libraries(debins_demo PRIVATE ${OpenCV_LIBS} kevinzzx_Cpp)
 
 
 #frenet_opt_traj
-add_executable(frenet_opt_traj_demo Frenet_opt_traj/main.cpp Frenet_opt_traj/Frenet_opt_traj.cpp)
+add_executable(frenet_opt_traj_demo Frenet_opt_traj/main.cpp Frenet_opt_traj/Frenet_opt_traj.cpp utils/cubic_spline.cpp utils/quartic_polynomial.cpp utils/quintic_polynomial.cpp)
 target_link_libraries(frenet_opt_traj_demo PRIVATE ${OpenCV_LIBS} kevinzzx_Cpp)
