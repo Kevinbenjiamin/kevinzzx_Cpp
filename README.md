@@ -55,6 +55,7 @@ IDE: vscode + clangd
 - stanley
 - rear_wheel_feedback
 - lqr
+- mpc
 - ...
 
 

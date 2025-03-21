@@ -33,3 +33,7 @@ target_link_libraries(stanley_demo PRIVATE kevinzzx_Cpp)
 # 后轮位置反馈控制
 add_executable(rear_wheel_feedback_demo Rear_Wheel_Feedback/main.cpp  Rear_Wheel_Feedback/RearWheelFeedback.cpp utils/MyReferencePath.cpp utils/kinematicModel.cpp)
 target_link_libraries(rear_wheel_feedback_demo PRIVATE kevinzzx_Cpp)
+
+#MPC 控制
+add_executable(mpc_demo MPC/main.cpp MPC/MPC.cpp utils/motion_model.cpp ../PathPlanning/utils/cubic_spline.cpp)
+target_link_libraries(mpc_demo PRIVATE ${OpenCV_LIBS} ipopt kevinzzx_Cpp)
